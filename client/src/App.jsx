@@ -33,7 +33,7 @@ function App() {
       </div>
       <div className='flex'>
           <input  type="text" value={amessage} onChange={event => setMessage(event.target.value)} onKeyDown={pressEnter} className='border-t w-full border-black '/>
-          <button className='border border-black ' onClick={sendMessage}>Send</button>
+          <button className='border border-black ' onClick={sendMessage}>Gönder</button>
       </div>
     </div>
   )
