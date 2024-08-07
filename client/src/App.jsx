@@ -26,10 +26,9 @@ function App() {
   if (!user) {
     return (
       <div className='h-screen flex justify-center items-center'>
-        <div className='flex flex-col border-black border-2 w-96 p-4 '>
-          <div className="p-4 "><h1 className='text-center font-bold text-2xl'>Login</h1></div>
-          <input type="text" className='my-10 border-b focus:outline-none' placeholder='Enter the Username'/>
-          <button>Login</button>
+        <div className='flex flex-col w-96 p-4 justify-center items-center'>
+          <input type="text" className='my-10 border-b focus:outline-none w-full' placeholder='Enter the Username'/>
+          <button className='bg-blue-600 text-white rounded-md h-10 w-20'>Login</button>
         </div>
       </div>
     )
