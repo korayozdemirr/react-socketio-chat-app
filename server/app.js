@@ -8,15 +8,25 @@ const io = new Server(server,{
         origin:"http://localhost:5173"
     }
 });
-
+const users = []
 io.on('connection', (socket)=>{
-    console.log("a user connected");
     socket.on("disconnect", ()=>{
-        console.log("disconnected user :" +socket.id)
+        users.splice(users.indexOf(socket.user),1)
+        updateUsers()
     })
     socket.on("message",(message)=>{
         io.emit("allMessage", message)
     })
+    socket.on("login", (login)=>{
+        const user = {username:login, userId:socket.id} 
+        socket.user = user
+        socket.emit("login", user)
+        users.push(user)
+        updateUsers()
+    })
+    function updateUsers(){
+        io.emit("onlineUsers", users);
+    }
 })
 
 server.listen(3001, () => {
