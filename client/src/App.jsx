@@ -34,7 +34,8 @@ function App() {
       setGelen(oldMessages => [...oldMessages, gelenmesaj])
     })
     socket.on("onlineUsers", (onlineUsers)=>{
-      setOnlineUsers(onlines => [...onlines, onlineUsers])
+      console.log(onlineUsers)
+      setOnlineUsers(onlineUsers)
     })
     return () => {
       socket.off('onlineUsers')
@@ -62,7 +63,7 @@ function App() {
                   onlineUsers.map((users, id)=>{
                     console.log(users)
                     return(
-                      <li key={id}>{users[id].username}</li>
+                      <li key={id}>{users.username}</li>
                     )
                   })
                 }
